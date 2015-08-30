@@ -1,0 +1,13 @@
+Though diff command able to figure out the differences, it was not user friendly in pointing out exact differences.
+it helps to introspect changes made in history. Also it would help to revert to particular version.
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+
+ans- manual commit feature enables to save whenever it is relevant to save changes made in the code. It gives freedom to control code. 
+
+How can you use the commands git log and git diff to view the history of files?
+ans-git log command will give all the recent changes made in the file with unique commit id corresponding to each change. git diff takes 2 id's to find out changes made between those id's.
+
+How might using version control make you more confident to make changes that could break something?
+ans- If something goes wrong during changes, it allows to revert back to previous working commit.
+
+
