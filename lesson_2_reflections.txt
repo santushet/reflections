@@ -1,4 +1,5 @@
 What happens when you initialize a repository? Why do you need to do it?
 ans- it creates empty git repository without any files in it. It is needed to create repository.
 
-
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+ans- Staging area acts as intermediate between workspace and 

@@ -1,7 +1,7 @@
 Though diff command able to figure out the differences, it was not user friendly in pointing out exact differences.
 it helps to introspect changes made in history. Also it would help to revert to particular version.
-What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
 
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
 ans- manual commit feature enables to save whenever it is relevant to save changes made in the code. It gives freedom to control code. 
 
 How can you use the commands git log and git diff to view the history of files?
