@@ -1,5 +1,81 @@
-What happens when you initialize a repository? Why do you need to do it?
-ans- it creates empty git repository without any files in it. It is needed to create repository.
+Q- What happens when you initialize a repository? Why do you need to do it?
+A- It creates empty git repository without any files in it. It is needed to create a repository.
 
-How is the staging area different from the working directory and the repository? What value do you think it offers?
-ans- Staging area acts as intermediate between workspace and 
+Q- How is the staging area different from the working directory and the repository? What value do you think it offers?
+A- Staging area acts as intermediate between working directory and repository.
+
+Q- How can you use the staging area to make sure you have one commit per logical change?
+A- First add all the files pertaining to that logical change to the staging area and after making sure you have staged all the files, make a commit. Continue the process for other logical changes.
+
+Q- What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+A- If 2 or more ppls are working on the new feature, using branch it is possible to merge codes of both the developers once they finished their work. 
+
+Q- How do the diagrams help you visualize the branch structure?
+A- It helps to understand the structure of branch as well as it will help to identify any checkout is reachable or not. For example, using command git log --graph (possibly with --oneline) [branch names...], you can easily tell how the whole branch structure was developed and at which point each branch was actually created. That would give you the overview of the whole structure of the project you are working on, so that you can tell what you are specifically focusing on and when and which branch to merge your work. 
+
+Q- What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+A- All the changes in the second branch is merged into the first branch, and the resulting merge commit becomes the new head of your current branch. The diagram shown by git log --graph cleary shows the merged commit has two parents, which correspond to the prior heads of each merged branch. It is helpful to identify untraceble commit using diagrams.
+
+Q- what are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+A- Pros- Saves your time, especially when each non-conflicting merge is trivial. Makes you concentrate on the changes which actually contain conflicts. 
+   Cons- Automatic merging can create confusions to developer. manual merge is tedious but it is safe option compared to automatic merge.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT Commands:-
+
+git init
+-- intializes empty git repository
+
+git status
+--displays branch details and recent commits made to the repository
+
+git add FILE_NAMES
+-- command to add files to the STAGING AREA
+
+git commit && git commit -m "Commit message"
+-- command to commit changes made in SA
+
+git diff
+-- show changes between working directory and staging area
+
+git diff --staged
+-- show differences between staging area and repository
+
+git diff commit1 commit2
+-- show changes between commits in repository
+
+git merge FIRST SECOND
+-- command to merge second branch to first branch
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Instructor Notes
+
+Checking out the coins branch
+
+If you haven't already checked out the coins branch, you'll need to do so now with the command git checkout coins before you'll be able to refer to it. Once you've done that, decide whether you should keep it checked out or check out a different branch before completing the merge.
+
+A note about git merge
+
+git merge will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 branch3, the merged version will combine branch1 as well as branch2 and branch3. That’s because the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t want the changes from branch1 included in the merge. For this reason, you should always checkout one of the two branches you’re planning on merging before doing the merge. Which one you should check out depends on which branch label you want to point to the new commit.
+
+Since the checked-out branch is always included in the merge, you may have guessed that when you are merging two branches, you don't need to specify both of them as arguments to git merge on the command line. If you want to merge branch2 into branch1, you can simply git checkout branch1 and then type git merge branch2. The only reason to type git merge branch1 branch2 is if it helps you keep better mental track of which branches you are merging.
+
+Also, since the two branches are merged, the order in which they are typed into the command line does not matter. The key is to remember that git merge always merges all the specified branches into the currently checked out branch, creating a new commit for that branch.
+
+Merge conflict
+
+If you get a message like this
+
+Auto-merging game.js
+CONFLICT (content): Merge conflict in game.js
+Automatic merge failed; fix conflicts and then commit the result.
+then your files were not in the same state as Caroline's when you started the merge. To fix this, complete the following steps:
+
+Restore your files to their state before you started the merge by running git merge --abort
+Double check the state of your files. If you run git log while the master branch is checked out, you should see Caroline's "Add color" commit as the second-most-recent, and the most recent should be your commit fixing the bullet bug. If you use git diff to compare your commit to Caroline's, your commit should introduce the line this.delayBeforeBullet = 10; on line 424. The line should be indented to the same level as the line below it using only spaces (no tabs), and the line should have no spaces after it.
+Once your file is in the correct state, create a new commit with your changes.
+Try the merge again.
+Comparing a commit to its parent
+
+The command Caroline mentions to compare a commit to its parent is git show commit_id

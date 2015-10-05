@@ -1,13 +1,84 @@
-Though diff command able to figure out the differences, it was not user friendly in pointing out exact differences.
-it helps to introspect changes made in history. Also it would help to revert to particular version.
+Q- What are disadvantages of using "diff" command to compare 2 files?
+A- Not user friendly in pointing out exact differences.
 
-What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
-ans- manual commit feature enables to save whenever it is relevant to save changes made in the code. It gives freedom to control code. 
+Q- advantages of git?
+A- It helps to introspect changes made in history. Also it would help to revert to particular version.
 
-How can you use the commands git log and git diff to view the history of files?
-ans-git log command will give all the recent changes made in the file with unique commit id corresponding to each change. git diff takes 2 id's to find out changes made between those id's.
+Q- How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+A- It would help newcomer to understand history of bugs occured in that particular product and how it has been fixed. 
+ 
+Q- What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+A- Manual commit feature enables to save whenever it is relevant to save changes made in the code. It gives freedom to control code. 
 
-How might using version control make you more confident to make changes that could break something?
-ans- If something goes wrong during changes, it allows to revert back to previous working commit.
+Q- How can you use the commands git log and git diff to view the history of files?
+A- git log command will give all the recent changes made in the file with unique commit id corresponding to each change. git diff takes 2 id's to find out changes made between those id's.
+
+Q- How might using version control make you more confident to make changes that could break something?
+A- If something goes wrong during changes, git allows to revert back to previous working commit.
+
+Q- Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+A- Git's feature to save multiple commits at once is helpful if in case there are several commits need need to be saved. For example, if there are 1000 commits on a file, it is tedious job to save each commits rather than saving at once.
+
+Q- Now that you have your workspace set up, what do you want to try using Git for?
+A- I want to create repository in git and update my projects to repository
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GIT commands:-
+
+git --version
+-- show git is installed or not with version details
+
+git log
+-- show history of commits to the repository
+
+git log --stat 
+-- show history with more statistics
+
+git diff ID1 ID2
+-- shows differences between two commit id's
+
+git clone URL
+--copy repository from URL to local machine. Once copied no need of internet connection to work on that repository and whatever changes made to the repository will be local to your machine
+
+git config --global color.ui auto
+-- command to see additions in green and deletions in red color
+
+git checkout COMMIT_ID
+-- if there are any errors in the current checkout, revert to previous version(bug free code) using this command
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSTRUCTOR NOTES:-
+
+Changing background color
+
+If you prefer the background color of Git Bash to be something other than black, you can change it in the "Defaults" menu under the "Colors" tab. If you like the background color as-is, you don't need to make any changes.
+
+Downloading necessary files
+
+Save this file in your home directory with the name git-completion.bash.
+Save this file in your home directory with the name git-prompt.sh.
+Download bash_profile_course from the Downloadables section.
+If you already have a file in your home directory named .bash_profile, copy the content from bash_profile_course and paste it at the bottom of .bash_profile. Otherwise, move bash_profile_course to your home directory and rename it to .bash_profile. (If you're curious to learn more about how bash prompts work, see this page.)
+
+Making Git configurations
+
+Run the following Git configuration commands. The first one will need to be modified if you are using a text editor other than Sublime, or if Sublime is installed in another location for you. See this page for the correct command for a couple of other popular text editors. For any other editor, you'll need to enter the command you use to launch that editor from Git Bash.
+
+git config --global core.editor "'C:/Program Files/Sublime Text 2/sublime_text.exe' -n -w"
+git config --global push.default upstream
+git config --global merge.conflictstyle diff3
+
+Make sure you can start your editor from Git Bash
+
+If you use Sublime, you can do this by adding the following line to your .bash_profile:
+
+alias subl="C:/Program\ Files/Sublime\ Text\ 2/sublime_text.exe"
+
+Restart Git Bash
+
+You'll need to close and re-open Git Bash before all your changes take effect.
+
+
 
 
