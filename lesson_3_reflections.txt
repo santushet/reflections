@@ -1,1 +1,35 @@
-When would you want to use a remote repository rather than keeping all your work local?
+Q- When would you want to use a remote repository rather than keeping all your work local?
+A- When I want to collaborate my repository with other users.
+
+Q- Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+A- If automatic update option is enabled, it might cause conflicts to your work . So to avoid distraction it is always better to take updates manually.
+
+Q- Describe the differences between forks, clones, and branches. When would you use one instead of another?
+A- A Clone is a copy of a repository. It can be in same local machine or used to copy repository from github to local machine. This is helpful when you want to get code from github user and customize to your need. A fork is a copy of a repository on github. Fork is used when you want to contribute to the project in github. In other words,fork is used as a request to owner to access permission to contribute to the project. Branches are used when multiple peoples are working on different features so that it can be merged at the end.
+
+Q- What is the benefit of having a copy of the last known state of the remote stored locally?
+A- It is easy to compare changes made in the online repository and offline repository.
+
+Q- How would you collaborate without using Git or GitHub? What would be easier, and what would be harder?
+A- I have to rely on mail/skype or other CVS. Git or GitHub is good for "offline source control". I can commit my changes offline and later move those changes to online repository when i have internet whereas in case of SVN it requires connection to repository to commit changes. Harder part is it requires efforts to learn commands which are confusing for the one who has come from SVN background such as checkout vs clone,commit vs push.  
+
+Q- When would you want to make changes in a separate branch rather than directly in master? What benefits does each approach have?
+A- Modifying master branch directly is riskier as it might screw the things. It is always safer to create seperate branch and submit your changes via pull requests for review. However, for small changes which you think safer it is good practice to modify directly in master.
+
+------------------------------------------------------------------------------------------------------------------
+GIT commands:-
+
+git remote [NAME]
+-- to see remote repositories created on local machine
+
+git remote add [REMOTE_REPO_NAME] [URL]
+-- To create remote repository to push local to github
+
+git push [REMOTE_REPO] [LATEST_LOCAL_BRANCH]
+-- To push local changes to git repository
+
+git pull origin master
+--This command is used to pull updates from git repository into your local master branch.This command is equivalent of fetching origin from git repository to local origin/master and then merge master with origin/master
+git fetch origin
+git merge master origin/master
+
